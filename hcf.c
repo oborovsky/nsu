@@ -13,11 +13,16 @@ int main(void)
 	int m,n;
 	int nod;
 
-	printf("input n,m > 0\n");
+	printf("input n*m != 0\n");
 	scanf("%d%d",&n, &m);
 
 	if( n == 0 || m == 0) {
 		nod = abs(n)+abs(m);
+		if( nod == 0)
+		{
+			printf("НОД для нулефых чисел не определён\n");
+			return 0;
+		}
 	} else 
 	{
 		nod = hcf(abs(n), abs(m));
