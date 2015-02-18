@@ -11,11 +11,23 @@ void fib(int n)
 		y=t;
 	}
 }
+int fibR(int n)
+{
+	if (n == 0) return 0;
+	if (n == 1) return 1;
+	return fibR(n-1) + fibR(n-2);
+}
 int main(void) {
 	int n = 0;
+	int i;
 	printf("input n>0: ");
 	scanf("%d", &n);
 	fib(n);
+	printf("\n");
+	for(i=0;i < n; i++)
+	{
+		printf("%d, ",fibR(i));
+	}
 	printf("\n");
 	return 0;
 }
