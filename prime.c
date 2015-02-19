@@ -1,5 +1,7 @@
 #include <stdio.h>
-#define N 5
+#include <math.h>
+
+#define N 10
 
 int hcf(int n, int m)
 {
@@ -10,37 +12,56 @@ int hcf(int n, int m)
 
 int isPrime(int n)
 {
-	int nod = 1;
 	int i;
 	if(n == 1) 
 	{
-		
+		return 0;	
 	}
-	for( i=2; i < n; i ++)
+	if( n == 2) 
+	{
+		return 1;
+	}
+	for( i=2; i < sqrt(n)+1; i ++)
 	{
         if( hcf(n,i) != 1) 
         {
-        	return 0
+        	return 0;
         }
 	}
 	return 1;
 }
 int main()
 {
-	int arr[N]= {1,2,3,4,5};
-	int i, j, cur;
-	int a = 0;
+	int arr[N]= {2,3,5,7,11,13,17,19,23,29};
+	int i;
+	int a = -1;
 	int b = 1;
 
 	for(i = 0; i < N; i++)
 	{
 		if( isPrime(arr[i]) == 1) 
 		{
-			a = 1;
+			a = i;
 		} 
 		else 
 		{
 			b = 0;
 		}
 	}
+	if( b == 1 ) 
+	{
+		printf("Все числа простые\n");
+	} 
+	else 
+	{
+		if( a != -1) 
+		{
+			printf("Есть простое чилсло arr[%d] = %d.\n", a, arr[a]);
+		} 
+		else
+		{
+			printf("Нет простых чесел.\n");
+		}
+	}
+	return 0;
 }
