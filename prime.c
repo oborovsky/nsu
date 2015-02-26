@@ -21,7 +21,7 @@ int isPrime(int n)
 	{
 		return 1;
 	}
-	for( i=2; i < sqrt(n)+1; i ++)
+	for( i=2; i < sqrt(n)+1; i++)
 	{
         if( hcf(n,i) != 1) 
         {
@@ -32,7 +32,7 @@ int isPrime(int n)
 }
 int main()
 {
-	int arr[N]= {2,3,5,7,11,13,17,19,21,29};
+	int arr[N]= {2,3,5,7,11,13,17,19,23,29};
 	int i;
 	int a = -1;
 	int b = 1;
