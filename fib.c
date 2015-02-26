@@ -17,6 +17,7 @@ int fibR(int n)
 	if (n == 1) return 1;
 	return fibR(n-1) + fibR(n-2);
 }
+
 int main(void) {
 	int n = 0;
 	int i;
@@ -24,10 +25,37 @@ int main(void) {
 	scanf("%d", &n);
 	fib(n);
 	printf("\n");
-	for(i=0;i < n; i++)
-	{
-		printf("%d, ",fibR(i));
-	}
-	printf("\n");
+	// for(i=0;i < n; i++)
+	// {
+	// 	printf("%d, ",fibR(i));
+	// }
+	// printf("\n");
+	//fibR2(n, 1);
+	//printf("\n");
 	return 0;
 }
+
+// int fibR2(int n, int key)
+// {
+// 	int f;
+// 	if( n == 0 ) 
+// 	{
+// 		if( key == 1) 
+// 		{
+// 			printf("0,");
+// 		}
+// 		return 0;
+// 	}
+// 	if ( n == 1) 
+// 	{
+// 		if ( key == 1 )
+// 		{
+// 			printf("0,1,");
+// 		}
+// 		return 1;
+// 	}
+// 	f= fibR2( n - 1, 1) + fibR2( n - 2, 0);
+// 	printf("%d,",f );
+// 	return f;
+
+// }
