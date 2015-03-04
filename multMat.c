@@ -1,5 +1,7 @@
 #include <stdio.h>
-
+#define K1 3
+#define K2 4
+#define K3 2
 void multMat(int* A, int* B, int* C, int N1, int N2, int N3)
 {
 	int m =0;
@@ -25,7 +27,7 @@ void printArr(int* A, int N, int M)
 	{
 		for(j=0; j < M; j++)
 		{
-			printf("%d ", *(A+i*M+j));
+			printf("%4.1d ", *(A+i*M+j));
 		}
 		printf("\n");
 	}
@@ -33,12 +35,12 @@ void printArr(int* A, int N, int M)
 }
 int main()
 {
-	int A[2][3]={{0,1,2},{1,0,-1}};
-	int B[3][2]={{1,2},{3,4},{1,-1}};
-	int C[2][2];
-	printArr(&A[0][0], 2,3);
-	printArr(&B[0][0], 3,2);
-	multMat(&A[0][0],&B[0][0],&C[0][0],2,3,2);
-	printArr(&C[0][0],2,2);
+	int A[K1][K2]={{0,1,2,-1},{1,0,-1,3},{1,-2,0,1}};
+	int B[K2][K3]={{1,2},{3,4},{1,-1},{0,1}};
+	int C[K1][K3];
+	printArr(&A[0][0], K1,K2);
+	printArr(&B[0][0], K2,K3);
+	multMat(&A[0][0],&B[0][0],&C[0][0],K1,K2,K3);
+	printArr(&C[0][0],K1,K3);
 	return 0;
 }
