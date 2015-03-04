@@ -29,15 +29,16 @@ void printArr(int* A, int N, int M)
 		}
 		printf("\n");
 	}
+	printf("\n");
 }
 int main()
 {
-	int A[2][2]={{0,1},{1,0}};
-	int B[2][2]={{1,2},{3,4}};
+	int A[2][3]={{0,1,2},{1,0,-1}};
+	int B[3][2]={{1,2},{3,4},{1,-1}};
 	int C[2][2];
-	printArr(&A[0][0], 2,2);
-	printArr(&B[0][0], 2,2);
-	multMat(&A[0][0],&B[0][0],&C[0][0],2,2,2);
+	printArr(&A[0][0], 2,3);
+	printArr(&B[0][0], 3,2);
+	multMat(&A[0][0],&B[0][0],&C[0][0],2,3,2);
 	printArr(&C[0][0],2,2);
 	return 0;
 }
