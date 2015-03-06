@@ -31,7 +31,7 @@ int main()
 {
 	char str[K];
 	printf("input a string:");
-	if(mget(str))
+	if(mget(str) != NULL)
 	{
 		//printf("%s\n", str);
 		if( isPalindrom(str) ) 
