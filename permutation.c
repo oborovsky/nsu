@@ -30,6 +30,7 @@ void printSet(int* end , int n)
 	{
 		printf("%d,",end[i] );
 	}
+	printf("\b ");
 	printf("\n");
 }
 int main()
