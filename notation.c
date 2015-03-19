@@ -45,6 +45,6 @@ int main()
 	{
 		onum = num;
 	} 
-	printf("in decimal notation it is %d\n", onum);
+	printf(" %d\n", onum);
 	return 0;
 }
