@@ -14,6 +14,7 @@ int readFile(char* name, int* buf, int len)
 		i++;
 	}
 	printf("\n");
+	fclose(f);
 	return i;
 }
 int bsearch(int elem, int* buf, int len)
