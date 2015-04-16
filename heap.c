@@ -27,9 +27,7 @@ void printBuf(int* buf, int n, int k)
 	{
 		if(k == 1 ) printf("[%d]=%d,",i, buf[i]);
 		if(k == 0 ) printf("%d,",buf[i]);
-	}
-	printf("\b \n");
-
+	}	printf("\b \n");
 }
 void flip(int* buf, int i, int j)
 {
@@ -55,20 +53,51 @@ void sort(int* buf, int n)
 }
 void norm(int* buf, int n, int i)
 {
-	int k[] = {i*2+1,i*2+2};
-	int j,s;
+	// int k[] = {i*2+1,i*2+2};
+	// int j,s;
 
-	if ( k[0] > n) return; 
-	for(s=1; s >= 0; s-- ) 
-	{
-		j = k[s];
+	// if ( k[0] > n) return; 
+	// for(s=1; s >= 0; s-- ) 
+	// {
+	// 	j = k[s];
  
-		if ( j < n && buf[i] < buf[j] ) 
-		{
-			flip(buf, i, j);
-			norm(buf, n, j);
-		}
-    } 
+	// 	if ( j < n && buf[i] < buf[j] ) 
+	// 	{
+	// 		flip(buf, i, j);
+	// 		norm(buf, n, j);
+	// 	}
+ //    }
+	int n1 = i*2+1, n2 = i*2+2;
+ 	if( n1 < n )
+ 	{
+ 		if ( n2 < n ) 
+ 		{
+ 			if( buf[n1] > buf[n2] )
+ 			{
+ 				if( buf[i] < buf[n1] ) 
+ 				{	
+	 				flip(buf, i, n1);
+	 				norm(buf, n, n1);
+	 			}
+ 			}
+ 			else
+ 			{
+ 				if ( buf[i] < buf[n2] )
+ 				{
+ 					flip(buf, i, n2);
+ 					norm(buf, n, n2);
+ 				}
+ 			}
+ 		}
+ 		else
+ 		{
+ 			if( buf[i] < buf[n1] ) 
+ 				{	
+	 				flip(buf, i, n1);
+	 				norm(buf, n, n1);
+	 			}
+ 		}
+ 	} 
 }
 int main (int argc, char* argv[])
 {
