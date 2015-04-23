@@ -53,20 +53,6 @@ void sort(int* buf, int n)
 }
 void norm(int* buf, int n, int i)
 {
-	// int k[] = {i*2+1,i*2+2};
-	// int j,s;
-
-	// if ( k[0] > n) return; 
-	// for(s=1; s >= 0; s-- ) 
-	// {
-	// 	j = k[s];
- 
-	// 	if ( j < n && buf[i] < buf[j] ) 
-	// 	{
-	// 		flip(buf, i, j);
-	// 		norm(buf, n, j);
-	// 	}
- //    }
 	int n1 = i*2+1, n2 = i*2+2;
  	if( n1 < n )
  	{

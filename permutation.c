@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define N 4
+#define N 3
 void printSet(int* end, int n);
 void f(int* start, int* end, int n)
 {
@@ -38,6 +38,7 @@ int main()
 	int start[N];
 	int end[N];
 	int i;
+
 	for (i = 0; i < N; i++)
 	{
 		start[i] = 1;
