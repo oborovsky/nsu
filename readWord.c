@@ -12,7 +12,7 @@ int isAlpha (int c)
 }
 char* readWord( FILE* f)
 {
-	int c, size = 0, count = 0, chunk = 10;
+	int c, size = 0, count = 0, chunk = 5;
 	char *tmp, *w = NULL;
 	while ( (c = fgetc(f)) != EOF )
 	{
@@ -25,7 +25,7 @@ char* readWord( FILE* f)
 			break;
 		} 
 		count++;
-		if ( count > size )
+		if ( count > size - 1 )
 		{
 			tmp = realloc(w,sizeof(char)*(size + chunk));
 			if ( tmp == NULL)
@@ -35,9 +35,11 @@ char* readWord( FILE* f)
 				return NULL;
 			}
 			w =  tmp; size += chunk;
+			tmp = NULL;
 		}
-		w[count - 1] = c;
+		w[count - 1] = (char)c;
 	}
+	if( w!= NULL) w[count] = '\0';
 	return w;
 }
 int main( int argc , char* argv[])
