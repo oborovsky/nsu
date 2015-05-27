@@ -3,7 +3,11 @@
 
 void norm(int* buf, int n, int i);	
 void printBuf(int* buf, int n, int k);
-
+int maxi(int n1, int n2, int* buf)
+{
+	if( buf[n1] > buf[n2]) return n1;
+	return n2;
+}
 int readFile(char* name, int* buf, int len)
 {
 	FILE *f;
@@ -13,10 +17,8 @@ int readFile(char* name, int* buf, int len)
 	while(feof(f) == 0 && i < len) 
 	{
 		fscanf(f,"%d",buf+i);
-		//printf("[%d]=%d,",i, buf[i]);
 		i++;
 	}
-	//printf("\n");
 	fclose(f);
 	return i;
 }
@@ -42,54 +44,39 @@ void sort(int* buf, int n)
 	{
 		norm(buf,n,i);
 	}
-	//printBuf(buf, n, 0);
 	for ( i = n-1; i > 0; i--)
 	{
 		flip(buf, 0, i);
-		//printBuf(buf, n, 0);
 		norm(buf, i,0);
-		//printBuf(buf, n, 0);
 	}
 }
 void norm(int* buf, int n, int i)
 {
 	int n1 = i*2+1, n2 = i*2+2;
+	int im;
  	if( n1 < n )
  	{
  		if ( n2 < n ) 
  		{
- 			if( buf[n1] > buf[n2] )
- 			{
- 				if( buf[i] < buf[n1] ) 
- 				{	
-	 				flip(buf, i, n1);
-	 				norm(buf, n, n1);
-	 			}
- 			}
- 			else
- 			{
- 				if ( buf[i] < buf[n2] )
- 				{
- 					flip(buf, i, n2);
- 					norm(buf, n, n2);
- 				}
- 			}
+ 			im = maxi(n1, n2, buf);
  		}
  		else
  		{
- 			if( buf[i] < buf[n1] ) 
- 				{	
-	 				flip(buf, i, n1);
-	 				norm(buf, n, n1);
-	 			}
+ 			im = n1;
  		}
+ 		im = maxi( i, im, buf);
+ 		if ( im != i) 
+ 		{
+			flip(buf, i, im);
+			norm(buf, n, im);
+		}
  	} 
 }
 int main (int argc, char* argv[])
 {
 	int buf[N];
 	int n = 0;
-	char* name = "input.txt";
+	char* name = "heap_input.txt";
 
 	if( argc > 1)
 	{
