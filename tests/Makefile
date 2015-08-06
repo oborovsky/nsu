@@ -1,8 +1,9 @@
 CC ?= gcc
 CFLAGS = -g -Wall -pedantic --std=gnu99
 LDFLAGS = -Lcu/ -lcu
+HOMEDIR = ..
 
-OBJS = test_reversestr.o test.o
+OBJS = test_reversestr.o test.o $(HOMEDIR)/reversestr.o
 
 all: test
 

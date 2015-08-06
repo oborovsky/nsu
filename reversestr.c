@@ -16,7 +16,7 @@ void getString (char *str, int i)
 }
 char* e2s(char *str) 
 {
-	static i = 0;
+	static int i = 0;
 	char c = str[i];
 	if(c != '\0') 
 	{
@@ -30,7 +30,7 @@ char* e2s(char *str)
 	}
 	return str;
 }
-
+/*
 int main()
 {	
 	char *str = malloc(sizeof(char) * 1000);
@@ -44,3 +44,4 @@ int main()
 	putchar('\n');
 	return 0;
 }
+*/

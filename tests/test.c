@@ -1,6 +1,7 @@
 #include "test_reversestr.h"
 
-TEST_SUITES {
+TEST_SUITES
+{
 	TEST_SUITE_ADD(testReverseString),
 	TEST_SUITES_CLOSURE
 };
