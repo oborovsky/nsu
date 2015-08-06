@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "reversestr.h"
 
 void getString (char *str, int i)
 {	int b = getchar();
@@ -40,7 +39,8 @@ int main()
 		return 1;
 	}
 	getString(str,0);
-	puts(e2s(str));
+	str = e2s(str);
+	puts(str);
 	putchar('\n');
 	return 0;
 }

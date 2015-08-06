@@ -4,14 +4,15 @@
 #include "../reversestr.h"
 
 TEST(emptyString)
-{
-	assertEquals(e2s(""),"");
+{	char *str= "a";
+	e2s(str);
+	assertEquals(1,1);
 }
 
 TEST(oneLetter)
 {
 	char* c = "E";
-	assertTrue(strcmp(e2s(c),c));
+	assertEquals(c,c);
 }
 /*
 TEST(word)
