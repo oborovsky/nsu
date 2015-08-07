@@ -1,8 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+		
 void getString (char *str, int i)
-{	int b = getchar();
+{
+	if (str == NULL )
+	{
+		perror("str == NULL in getString");
+		exit(1);
+	}
+	int b = getchar();
 	if( b !='\n')
 	{
 		str[i++] = b;
@@ -15,6 +21,11 @@ void getString (char *str, int i)
 }
 char* e2s(char *str) 
 {
+	if (str == NULL )
+	{
+		perror("str == NULL in e2s");
+		exit(1);
+	}
 	static int i = 0;
 	char c = str[i];
 	if(c != '\0') 

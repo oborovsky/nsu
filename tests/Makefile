@@ -16,6 +16,6 @@ test: $(OBJS)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -f *.o test
+	rm -f *.o $(HOMEDIR)/*.o test
 
 .PHONY: all clean
