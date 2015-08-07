@@ -40,7 +40,7 @@ char* e2s(char *str)
 	}
 	return str;
 }
-/*
+
 int main()
 {	
 	char *str = malloc(sizeof(char) * 1000);
@@ -55,4 +55,3 @@ int main()
 	putchar('\n');
 	return 0;
 }
-*/

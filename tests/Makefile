@@ -12,6 +12,7 @@ test: $(OBJS)
 
 %.o: %.c %.h
 	$(CC) $(CFLAGS) -c -o $@ $<
+	
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
