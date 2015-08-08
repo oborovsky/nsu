@@ -3,19 +3,19 @@
 #include "cu/cu.h"
 #include <stdlib.h>
 #include <stdio.h>	
-#include "../reversestr.h"
 
 TEST(emptyString)
-{	char *str= malloc(sizeof(char));
+{
+	char *str= malloc(sizeof(char));
 	*str = '\0';
-	printf("str=%s, and empty string =%s\n", str,"");	
 	str = e2s(str);
 	assertEquals(strcmp(str,""),0);
 }
 
 TEST(oneLetter)
 {
-	char* c = malloc(sizeof(char)*2);
+	char *letter = "E";
+	char *c = malloc(sizeof(char)*2);
 	if ( c == NULL)
 	{
 		perror("no memory");
@@ -23,7 +23,8 @@ TEST(oneLetter)
 	}
 	*c = 'E';
 	*(c+1) = '\0';
-	assertEquals(e2s(c),c);
+	c = e2s(c);
+	assertEquals(strcmp(c, letter),0);
 }
 
 TEST(word)
@@ -38,9 +39,7 @@ TEST(word)
 		exit(1);
 	}
 	str = strcpy(str, word);
-	printf("in word first str=%s :",str );
 	str = e2s(str);
-	printf("in word str=%s\n",str );
 	assertEquals(strcmp(str, rword),0);
 }
 
@@ -56,9 +55,7 @@ TEST(phrase)
 		exit(1);
 	}
 	str = strcpy(str, phrase);
-	printf("in phrase first str=%s :",str );
 	str = e2s(str);
-	printf("in phrase str=%s\n",str );
 	assertEquals(strcmp(str,rphrase),0);
 
 }

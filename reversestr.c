@@ -27,31 +27,39 @@ char* e2s(char *str)
 		exit(1);
 	}
 	static int i = 0;
+	static int j = 0;
 	char c = str[i];
 	if(c != '\0') 
 	{
 		i++;
 		e2s(str);
 		str[i++] = c;
+
 	}
 	else
 	{
+		j = i;
 		i = 0;
+	}	
+
+	if (j == i)
+	{
+		j = i = 0;
 	}
 	return str;
 }
 
-int main()
-{	
-	char *str = malloc(sizeof(char) * 1000);
-	if (str == NULL) 
-	{
-		perror("no memory");
-		return 1;
-	}
-	getString(str,0);
-	str = e2s(str);
-	puts(str);
-	putchar('\n');
-	return 0;
-}
+// int main()
+// {	
+// 	char *str = malloc(sizeof(char) * 1000);
+// 	if (str == NULL) 
+// 	{
+// 		perror("no memory");
+// 		return 1;
+// 	}
+// 	getString(str,0);
+// 	str = e2s(str);
+// 	puts(str);
+// 	putchar('\n');
+// 	return 0;
+// }
