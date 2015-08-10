@@ -34,7 +34,7 @@ char* e2s(char *str)
 		i++;
 		e2s(str);
 		str[i++] = c;
-
+		
 	}
 	else
 	{

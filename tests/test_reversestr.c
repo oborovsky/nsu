@@ -2,7 +2,8 @@
 #include <string.h>
 #include "cu/cu.h"
 #include <stdlib.h>
-#include <stdio.h>	
+#include <stdio.h>
+#include "../reversestr.h"	
 
 TEST(emptyString)
 {
