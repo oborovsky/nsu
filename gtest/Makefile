@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -g -Wall
-LDFLAGS = -L/opt/gtest/lib -lgtest -lgtest_main -lpthread
-INCS = -I./ -I../ -I/opt/gtest/include
+LDFLAGS = -lgtest -lgtest_main -lpthread #-L/opt/gtest/lib 
+INCS = -I./ -I../ #-I/opt/gtest/include
 SRC = ..
 OBJ = ../fib.o fib_unittest.o
 TARGET = test

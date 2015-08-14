@@ -7,7 +7,9 @@ TEST(fibbonachiTest, Zero) {
 }
 TEST(fibbonachiTest, Pozitive) {
 	EXPECT_EQ(1, fib(1));
-	EXPECT_EQ(2, fib(2));
-	EXPECT_EQ(3, fib(3));
-	EXPECT_EQ(5, fib(4));
+	EXPECT_EQ(1, fib(2));
+	EXPECT_EQ(2, fib(3));
+	EXPECT_EQ(3, fib(4));
+	EXPECT_EQ(21, fib(8));
+	EXPECT_EQ(55, fib(10));
 }
