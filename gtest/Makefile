@@ -2,8 +2,8 @@ CXX = g++
 CXXFLAGS = -g -Wall
 LDFLAGS = -lgtest -lgtest_main -lpthread #-L/opt/gtest/lib 
 INCS = -I./ -I../ #-I/opt/gtest/include
-SRC = ..
-OBJ = ../fib.o fib_unittest.o
+SRC = ../course_1_term_2
+OBJ = $(SRC)/fib.o fib_unittest.o
 TARGET = test
 all: $(TARGET)
 	
