@@ -16,27 +16,20 @@ int findIndex(char ch, const char *abc)
 }
 char code(char ch, int step)
 {
-	const char *abc = "0123456789abcdefghijklmnopqrstuvwxyz";
+	const char *abc = "0123456789abcdefghijklmnopqrstuvwxyz .,:;-=+*/%?!ABCDEFGHIJKLMNOPQRSTUVWXYZ\n";
 	int len = strlen(abc);
 	int i = findIndex(ch, abc);
 
 	if ( i == -1 ) return -1;
 
 	i = (i + step) % len;
+	i = ( i < 0 ) ? len + i : i;
 
 	return *(abc + i);
 }
 char decode(char ch, int step)
 {
-	const char *abc = "0123456789abcdefghijklmnopqrstuvwxyz";
-	int len = strlen(abc);
-	int i = findIndex(ch, abc);
-
-	if ( i == -1 ) return -1;
-
-	i = (i - step >= 0) ? i - step : len + i - step;
-
-	return *(abc + i);	
+	return code(ch, -step);
 }
 char* catString(const char *str1, const char *str2) 
 {
@@ -68,6 +61,7 @@ void codingFile(const char* file, int step)
 	if ( fi == NULL || fo == NULL) 
 	{
 		perror("one of files can't open\n");
+		exit(1);
 	}
 
 	char ch = fgetc(fi);
@@ -76,6 +70,7 @@ void codingFile(const char* file, int step)
 		ch = code(ch, step);
 		if (ch == -1) {
 			perror("code is wrong\n");
+			exit(1);
 		}
 		if (fputc(ch, fo) == EOF) 
 		{
@@ -93,7 +88,7 @@ void decodingFile(const char* file, int step)
 	FILE *fi = fopen(codingFile, "r");
 
 	char *decodingFile = catString(file, "decoding");
-	FILE *fo = fopen(codingFile, "w");
+	FILE *fo = fopen(decodingFile, "w");
 	free(codingFile);
 	free(decodingFile);
 
@@ -119,8 +114,9 @@ void decodingFile(const char* file, int step)
 	fclose(fi);
 	fclose(fo);
 }
-// int main(int argc, char const *argv[])
-// {
-// 	codingFile("itext", 1);
-// 	return 0;
-// }
+int main(int argc, char const *argv[])
+{
+	codingFile("itext", 1);
+	decodingFile("itext",1);
+	return 0;
+}

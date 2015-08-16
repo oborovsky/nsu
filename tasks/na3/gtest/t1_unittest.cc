@@ -9,7 +9,7 @@ TEST(codeTest, positiveStep)
 {
 	EXPECT_EQ('b', code('a',1));
 	EXPECT_EQ('c', code('a',2));
-	EXPECT_EQ('2', code('z',3));
+	EXPECT_EQ('0', code('z',1));
 	EXPECT_EQ('4', code('1',3));
 }
 
@@ -17,6 +17,7 @@ TEST(codeTest, negativeStep)
 {
 	EXPECT_EQ('9', code('a', -1));
 	EXPECT_EQ('z', code('0', -1));
+	EXPECT_EQ('y', code('z', -1));
 }
 
 TEST(findIndexTest, steps123etc)
@@ -43,9 +44,35 @@ TEST(decodeTest, positiveStep)
 	EXPECT_EQ('z', decode('0', 1));
 	EXPECT_EQ('9', decode('a', 1));
 	EXPECT_EQ('0', decode('9', 9));
+	EXPECT_EQ('z', decode('0', 1));
 }
 TEST(decodeTest, negativeStep)
 {
 	EXPECT_EQ('b', decode('a', -1));
 	EXPECT_EQ('0', decode('z', -1));
+	EXPECT_EQ('1', decode('0', -1));
+}
+TEST(decodeCodeTest, positiveStep)
+{
+	EXPECT_EQ('a', decode( code('a',1), 1) );
+	EXPECT_EQ('z', decode( code('z',1), 1) );
+	EXPECT_EQ('0', decode( code('0', 1), 1) );
+}
+TEST(decodeCodeTest, negativeStep)
+{
+	EXPECT_EQ('a', decode( code('a',-1), -1) );
+	EXPECT_EQ('z', decode( code('z',-1), -1) );
+	EXPECT_EQ('0', decode( code('0', -1), -1) );	
+}
+TEST(codeDecodeTest, positiveStep)
+{
+	EXPECT_EQ('a', code( decode('a',1), 1) );
+	EXPECT_EQ('z', code( decode('z',1), 1) );
+	EXPECT_EQ('0', code( decode('0', 1), 1) );
+}
+TEST(codeDecodeTest, negativeStep)
+{
+	EXPECT_EQ('a', code( decode('a',-1), -1) );
+	EXPECT_EQ('z', code( decode('z',-1), -1) );
+	EXPECT_EQ('0', code( decode('0', -1), -1) );	
 }
