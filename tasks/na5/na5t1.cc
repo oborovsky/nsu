@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define N 2
+#include "na5t1.h"
 
 void mult( double A[][N], double B[][N], double C[][N]) 
 {
@@ -38,14 +38,14 @@ void printMatrix(double A[][N])
 		printf("\b \n");
 	}
 }
-int main(int argc, char const *argv[])
-{
-	double A[N][N] = {{1,2},{3,4}};
-	double B[N][N] = {{1,0},{2,5}};
-	double C[N][N];
+// int main(int argc, char const *argv[])
+// {
+// 	double A[N][N] = {{1,2},{3,4}};
+// 	double B[N][N] = {{1,0},{2,5}};
+// 	double C[N][N];
 
-	mult(A, B, C);
-	printMatrix(C);
+// 	mult(A, B, C);
+// 	printMatrix(C);
 
-	return 0;
-}
+// 	return 0;
+// }
