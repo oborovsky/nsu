@@ -3,7 +3,7 @@ CXX = g++
 CFLAGS = -g -Wall
 LDFLAGS =
 HOMEDIR = .
-TARGET = reversestr
+TARGET = qsort
 INCS = 
 
 all: $(TARGET)

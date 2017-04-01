@@ -10,10 +10,10 @@ int readFile(char* name, int* buf, int len)
 	while(feof(f) == 0 && i < len) 
 	{
 		fscanf(f,"%d",buf+i);
-		//printf("[%d]=%d,",i, buf[i]);
+		// printf("[%d]=%d,",i, buf[i]);
 		i++;
 	}
-	//printf("\n");
+	// printf("\n");
 	fclose(f);
 	return i;
 }
@@ -39,38 +39,41 @@ void qsort(int* buf, int l, int r)
 
 	int mid = (buf[l] + buf[r])/2;
 	int i = l, j = r;
-	printf("out: mid=%d, (l=%d, r=%d)\n", mid, l,r );
+	printBuf(buf,r+1,1);
+	printf("out : mid=%d, (l=%d, r=%d)\n", mid, l,r );
 	if ( l >= r) return;
 
-	while( i+1 < j )
+	while( i < j )
 	{
-		while( (buf[i] < mid) && (i+1<j) ) { i++; };
-		while( (buf[j] >= mid) && (j>i+1) ) { j--; };
-		printf("i=%d,j=%d\n", i,j);
-		if (*(buf+i) > *(buf+j) )
+		while( (buf[i] <= mid) && (i<j) ) { i++; };
+		while( (buf[j] > mid) && (j>i) ) { j--; };
+		printf("candidate : i=%d,j=%d\n", i,j);
+		if (i != j && *(buf+i) > *(buf+j) )
 		{
+			printf("flip :");
 			flip(buf,i,j);
 			printBuf(buf,r,0);
 		}
 	}
-	printf("out: mid=%d, (l=%d, i=%d), (j=%d, r=%d)\n", mid, l,i,j, r );
-	qsort(buf, l, i);
-	qsort(buf, j, r);
+	printf("next qsort : (l=%d, i=%d), (j=%d, r=%d)\n", l, i-1, j, r );
+	printf("----------------------------------------------------------------------\n");
+	if ( l < i-1) qsort(buf, l, i - 1 );
+	if ( j < r) qsort(buf, j, r);
 }
 
 int main (int argc, char* argv[])
 {
 	int buf[N];
 	int n = 0;
-	char* name = "input.txt";
+	char* name = "input_qsort.txt";
 
 	if( argc > 1)
 	{
 		name = argv[1];
 	}
 	n = readFile(name, buf, N);
-	printf("n=%d\n", n);
-	printBuf(buf,n,0);
+	// printf("n=%d\n", n);
+	// printBuf(buf,n,0);
 
 	if( n > 0)
 	{
